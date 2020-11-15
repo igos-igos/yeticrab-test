@@ -1,0 +1,24 @@
+.table {
+  padding-top: 15px;
+  width: 100%;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+.titleCell {
+  text-align: left;
+}
+
+.row:hover {
+  background-color: #eeeeee;
+}
+
+.openLink {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.btn {
+  cursor: pointer;
+}
