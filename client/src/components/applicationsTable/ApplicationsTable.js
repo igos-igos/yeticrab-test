@@ -28,10 +28,14 @@ export const ApplicationsTable = ({applications, deleteHandler}) => {
               <a href={`tel:+${application.carrirerPhone}`}>{application.carrirerPhone}</a>
             </td>
             <td>
-            <a target="_blanc" href={`h​ttps://ati.su/firms/${application.ati}/info`}>{application.ati}</a>
+              <a target="_blanc" rel="noreferrer" href={`https://ati.su/firms/${application.ati}/info`}>
+                {application.ati}
+              </a>
             </td>
             <td>
-              <Link className={classes.openLink} to={`/application/${application.appNumber}`}>Открыть</Link>
+              <Link className={classes.openLink} to={`/application/${application.appNumber}`}>
+                Открыть
+              </Link>
               <button onClick={() => deleteHandler(application.appNumber)} className={classes.btn}>
                 Удалить
               </button>
