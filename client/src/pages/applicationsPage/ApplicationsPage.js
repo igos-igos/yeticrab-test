@@ -48,22 +48,34 @@ export const ApplicationsPage = () => {
   return (
     <React.Fragment>
       <div className={classes.wrapper}>
-        <input
-          className={classes.searchInput}
-          type="text"
-          placeholder="Поиск"
-          value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
-          onKeyPress={(event) => renderResult(event, applications, searchValue)}
-        />
+        <div className={classes.inputTip}>
+          <input
+            className={classes.searchInput}
+            type="text"
+            placeholder="Поиск"
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+            onKeyPress={(event) => renderResult(event, applications, searchValue)}
+          />
+        </div>
+
         <button className={classes.createBtn} type="button" onClick={() => openModalHandler()}>
           Создать заявку
         </button>
       </div>
-      {!loading && applications && (
-        <ApplicationsTable applications={searchResult} deleteHandler={deleteApplicationHandler} />
-      )}
-      {openModal ? <CreateApplicationModal closeHandler={closeModalHandler} getApplications={getApplications} /> : null}
+
+      {
+        !loading && applications &&
+        (<ApplicationsTable applications={searchResult} deleteHandler={deleteApplicationHandler} />)
+      }
+
+      {
+        openModal
+        ?
+        <CreateApplicationModal closeHandler={closeModalHandler} getApplications={getApplications} />
+        :
+        null
+      }
     </React.Fragment>
   )
 }
