@@ -31,8 +31,10 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
     <div className={classes.overlay} onClick={() => closeHandler()}>
       <div className={classes.modal} onClick={(event) => event.stopPropagation()}>
         <b>Создание заявки</b>
+
         <form className={classes.form}>
           <ul className={classes.inputsList}>
+
             <li className={classes.inputItem}>
               <label className={classes.label} htmlFor="clientFirm">
                 Название фирмы клиента
@@ -46,6 +48,7 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
                 onChange={changeHandler}
               />
             </li>
+
             <li className={classes.inputItem}>
               <label className={classes.label} htmlFor="carrierName">
                 ФИО перевозчика
@@ -59,6 +62,7 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
                 onChange={changeHandler}
               />
             </li>
+
             <li className={classes.inputItem}>
               <label className={classes.label} htmlFor="carrirerPhone">
                 Телефон перевозчика
@@ -72,6 +76,7 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
                 onChange={changeHandler}
               />
             </li>
+
             <li className={classes.inputItem}>
               <label className={classes.label} htmlFor="ati">
                 ATI код сети перевозчика
@@ -85,6 +90,7 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
                 onChange={changeHandler}
               />
             </li>
+
             <li className={classes.inputItem}>
               <label className={classes.label} htmlFor="comment">
                 Комментарий
@@ -98,11 +104,20 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
               />
             </li>
           </ul>
+
           <div>
-            <button className={classes.btn} onClick={createApplicationHandler} disabled={loading}>
+            <button
+              className={classes.btn}
+              onClick={createApplicationHandler}
+              disabled={loading}
+            >
               Создать заявку
             </button>
-            <button className={classes.btn} type="button" onClick={() => closeHandler()}>
+            <button
+              className={classes.btn}
+              type="button"
+              onClick={() => closeHandler()}
+            >
               Закрыть окно
             </button>
           </div>

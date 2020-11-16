@@ -6,9 +6,11 @@ import classes from "./ApplicationDetailsForm.module.css"
 export const ApplicationDetailsForm = ({application}) => {
   const {request} = useHttp()
   const [change, setChange] = useState(false)
+
   const activeChangeHandler = () => {
     setChange(true)
   }
+
   const changeHandler = (event) => {
     setForm({...form, [event.target.name]: event.target.value})
   }
@@ -31,22 +33,39 @@ export const ApplicationDetailsForm = ({application}) => {
 
   return (
     <div>
+
       <b className={classes.title}>Заявка № {application.appNumber}</b>
       <Link to={"/applications"}>К списку заявок</Link>
+
       <form className={classes.form}>
         <ul className={classes.inputsList}>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="appNumber">
               Номер заявки
             </label>
-            <input type="text" name="appNumber" id="appNumber" defaultValue={form.appNumber} disabled />
+            <input
+              type="text"
+              name="appNumber"
+              id="appNumber"
+              defaultValue={form.appNumber}
+              disabled
+            />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="date">
               Дата/время создания заявки
             </label>
-            <input type="text" name="date" id="date" defaultValue={form.date} disabled />
+            <input
+              type="text"
+              name="date"
+              id="date"
+              defaultValue={form.date}
+              disabled
+            />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="clientOrganizationName">
               Название фирмы клиента
@@ -60,6 +79,7 @@ export const ApplicationDetailsForm = ({application}) => {
               onChange={changeHandler}
             />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="carrierName">
               ФИО перевозчика
@@ -73,6 +93,7 @@ export const ApplicationDetailsForm = ({application}) => {
               onChange={changeHandler}
             />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="carrirerPhone">
               Телефон перевозчика
@@ -86,12 +107,14 @@ export const ApplicationDetailsForm = ({application}) => {
               onChange={changeHandler}
             />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="ati">
               ATI код сети перевозчика
             </label>
             <input type="text" name="ati" id="ati" value={form.ati} disabled={!change} onChange={changeHandler} />
           </li>
+
           <li className={classes.inputItem}>
             <label className={classes.label} htmlFor="comment">
               Комментарий
@@ -99,6 +122,7 @@ export const ApplicationDetailsForm = ({application}) => {
             <textarea id="comment" name="comment" value={form.comment} disabled={!change} onChange={changeHandler} />
           </li>
         </ul>
+
         <div>
           <button className={classes.btn} disabled={change} onClick={activeChangeHandler}>
             Изменить заявку
