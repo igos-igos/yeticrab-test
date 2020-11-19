@@ -1,8 +1,6 @@
 import {useState} from "react"
 import {useHttp} from "../../hooks/http.hook"
 
-import classes from "./CreateApplicationModal.module.css"
-
 export const CreateApplicationModal = ({closeHandler, getApplications}) => {
   const {loading, request} = useHttp()
   const [form, setForm] = useState({
@@ -28,18 +26,19 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
   }
 
   return (
-    <div className={classes.overlay} onClick={() => closeHandler()}>
-      <div className={classes.modal} onClick={(event) => event.stopPropagation()}>
-        <b>Создание заявки</b>
+    <div className="overlay" onClick={() => closeHandler()}>
+      <div className="modal" onClick={(event) => event.stopPropagation()}>
+        <b className="title">Создание заявки</b>
 
-        <form className={classes.form}>
-          <ul className={classes.inputsList}>
+        <form className="form">
+          <ul className="resetList">
 
-            <li className={classes.inputItem}>
-              <label className={classes.label} htmlFor="clientFirm">
+            <li className="inputItem">
+              <label htmlFor="clientFirm">
                 Название фирмы клиента
               </label>
               <input
+                className="input"
                 placeholder="Введите название фирмы клиента"
                 name="clientOrganizationName"
                 type="text"
@@ -49,11 +48,12 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
               />
             </li>
 
-            <li className={classes.inputItem}>
-              <label className={classes.label} htmlFor="carrierName">
+            <li className="inputItem">
+              <label htmlFor="carrierName">
                 ФИО перевозчика
               </label>
               <input
+                className="input"
                 placeholder="Введите ФИО перевозчика"
                 name="carrierName"
                 type="text"
@@ -63,11 +63,12 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
               />
             </li>
 
-            <li className={classes.inputItem}>
-              <label className={classes.label} htmlFor="carrirerPhone">
+            <li className="inputItem">
+              <label htmlFor="carrirerPhone">
                 Телефон перевозчика
               </label>
               <input
+                className="input"
                 placeholder="Введите номер телефона перевозчика"
                 name="carrirerPhone"
                 type="text"
@@ -77,11 +78,12 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
               />
             </li>
 
-            <li className={classes.inputItem}>
-              <label className={classes.label} htmlFor="ati">
+            <li className="inputItem">
+              <label htmlFor="ati">
                 ATI код сети перевозчика
               </label>
               <input
+                className="input"
                 placeholder="Введите ati"
                 name="ati"
                 type="text"
@@ -91,11 +93,12 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
               />
             </li>
 
-            <li className={classes.inputItem}>
-              <label className={classes.label} htmlFor="comment">
+            <li className="inputItem">
+              <label htmlFor="comment">
                 Комментарий
               </label>
               <textarea
+                className="input"
                 placeholder="Введите комментарий"
                 name="comment"
                 id="comment"
@@ -107,14 +110,14 @@ export const CreateApplicationModal = ({closeHandler, getApplications}) => {
 
           <div>
             <button
-              className={classes.btn}
+              className="btn btn--lg"
               onClick={createApplicationHandler}
               disabled={loading}
             >
               Создать заявку
             </button>
             <button
-              className={classes.btn}
+              className="btn btn--lg"
               type="button"
               onClick={() => closeHandler()}
             >

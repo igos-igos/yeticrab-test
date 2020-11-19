@@ -1,7 +1,6 @@
 import {useState} from "react"
 import {Link} from "react-router-dom"
 import {useHttp} from "../../hooks/http.hook"
-import classes from "./ApplicationDetailsForm.module.css"
 
 export const ApplicationDetailsForm = ({application}) => {
   const {request} = useHttp()
@@ -34,17 +33,18 @@ export const ApplicationDetailsForm = ({application}) => {
   return (
     <div>
 
-      <b className={classes.title}>Заявка № {application.appNumber}</b>
-      <Link to={"/applications"}>К списку заявок</Link>
+      <b className="title">Заявка № {application.appNumber}</b>
+      <Link className="link" to={"/applications"}>К списку заявок</Link>
 
-      <form className={classes.form}>
-        <ul className={classes.inputsList}>
+      <form className="form">
+        <ul className="resetList">
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="appNumber">
+          <li className="inputItem">
+            <label htmlFor="appNumber">
               Номер заявки
             </label>
             <input
+              className="input"
               type="text"
               name="appNumber"
               id="appNumber"
@@ -53,11 +53,12 @@ export const ApplicationDetailsForm = ({application}) => {
             />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="date">
+          <li className="inputItem">
+            <label htmlFor="date">
               Дата/время создания заявки
             </label>
             <input
+              className="input"
               type="text"
               name="date"
               id="date"
@@ -66,11 +67,12 @@ export const ApplicationDetailsForm = ({application}) => {
             />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="clientOrganizationName">
+          <li className="inputItem">
+            <label htmlFor="clientOrganizationName">
               Название фирмы клиента
             </label>
             <input
+              className="input"
               type="text"
               name="clientOrganizationName"
               id="clientOrganizationName"
@@ -80,11 +82,12 @@ export const ApplicationDetailsForm = ({application}) => {
             />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="carrierName">
+          <li className="inputItem">
+            <label htmlFor="carrierName">
               ФИО перевозчика
             </label>
             <input
+              className="input"
               type="text"
               name="carrierName"
               id="carrierName"
@@ -94,11 +97,12 @@ export const ApplicationDetailsForm = ({application}) => {
             />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="carrirerPhone">
+          <li className="inputItem">
+            <label htmlFor="carrirerPhone">
               Телефон перевозчика
             </label>
             <input
+              className="input"
               type="text"
               name="carrirerPhone"
               id="carrirerPhone"
@@ -108,26 +112,39 @@ export const ApplicationDetailsForm = ({application}) => {
             />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="ati">
+          <li className="inputItem">
+            <label htmlFor="ati">
               ATI код сети перевозчика
             </label>
-            <input type="text" name="ati" id="ati" value={form.ati} disabled={!change} onChange={changeHandler} />
+            <input
+              className="input"
+              type="text" name="ati"
+              id="ati" value={form.ati}
+              disabled={!change}
+              onChange={changeHandler}
+            />
           </li>
 
-          <li className={classes.inputItem}>
-            <label className={classes.label} htmlFor="comment">
+          <li className="inputItem">
+            <label htmlFor="comment">
               Комментарий
             </label>
-            <textarea id="comment" name="comment" value={form.comment} disabled={!change} onChange={changeHandler} />
+            <textarea
+              className="input"
+              id="comment"
+              name="comment"
+              value={form.comment}
+              disabled={!change}
+              onChange={changeHandler}
+            />
           </li>
         </ul>
 
         <div>
-          <button className={classes.btn} disabled={change} onClick={activeChangeHandler}>
+          <button className="btn btn--lg" disabled={change} onClick={activeChangeHandler}>
             Изменить заявку
           </button>
-          <button className={classes.btn} type="button" disabled={!change} onClick={changeApplicationHandler}>
+          <button className="btn btn--lg" type="button" disabled={!change} onClick={changeApplicationHandler}>
             Сохранить
           </button>
         </div>

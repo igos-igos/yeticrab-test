@@ -49,7 +49,7 @@ export const ApplicationsTable = ({applications, deleteHandler}) => {
 
               <button
                 onClick={() => deleteHandler(application.appNumber)}
-                className={classes.btn}
+                className="btn"
               >
                 Удалить
               </button>

@@ -50,7 +50,7 @@ export const ApplicationsPage = () => {
       <div className={classes.wrapper}>
         <div className={classes.inputTip}>
           <input
-            className={classes.searchInput}
+            className="input"
             type="text"
             placeholder="Введите значение..."
             value={searchValue}
@@ -58,7 +58,7 @@ export const ApplicationsPage = () => {
           />
         </div>
 
-        <button className={classes.createBtn} type="button" onClick={() => openModalHandler()}>
+        <button className="btn btn--lg" type="button" onClick={() => openModalHandler()}>
           Создать заявку
         </button>
       </div>
