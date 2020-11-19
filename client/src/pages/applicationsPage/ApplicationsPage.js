@@ -14,7 +14,6 @@ export const ApplicationsPage = () => {
     try {
       const data = await request("api/applications", "GET", null)
       setApplications(data)
-      setSearchResult(data)
     } catch (e) {}
   }, [request])
 
@@ -32,18 +31,19 @@ export const ApplicationsPage = () => {
   }
 
   const deleteApplicationHandler = async (applicationNumber) => {
-    setApplications(applications.filter((application) => application.appNumber !== applicationNumber))
     try {
-      await request(`/api/applications/delete/${applicationNumber}`, "DELETE", null)
-    } catch (e) {}
+        await request(`/api/applications/delete/${applicationNumber}`, "DELETE", null)
+      } catch (e) {}
+      setApplications(applications.filter((application) => application.appNumber !== applicationNumber))
   }
 
-  const renderResult = (event, arr, query) => {
-    if (event.key === 'Enter') {
-      const result = arr.filter(item => String(item.appNumber).includes(query))
-      setSearchResult(result)
-    }
-  }
+  const renderResult = useCallback(() => {
+      setSearchResult(applications.filter(item => String(item.appNumber).includes(searchValue)))
+  }, [applications, searchValue])
+
+  useEffect(() => {
+    renderResult()
+  }, [renderResult])
 
   return (
     <React.Fragment>
@@ -52,10 +52,9 @@ export const ApplicationsPage = () => {
           <input
             className={classes.searchInput}
             type="text"
-            placeholder="Поиск"
+            placeholder="Введите значение..."
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
-            onKeyPress={(event) => renderResult(event, applications, searchValue)}
           />
         </div>
 

@@ -14,7 +14,7 @@
   position: relative;
 }
 .inputTip::after {
-  content: "Поиск по номеру заявки. Введите значение и нажмите Enter";
+  content: "Поиск по номеру заявки.";
   margin-left: 5px;
   color: #333333;
   font-size: 80%;
